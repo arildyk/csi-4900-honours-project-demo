@@ -5,7 +5,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-# Load your Joblib model
+# Load your Joblib model for url
 model = load('urlmodel.joblib')
 
 @app.route('/predict', methods=['POST'])
