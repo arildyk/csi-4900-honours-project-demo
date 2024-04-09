@@ -1,13 +1,119 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body {
+  height: 100%;
+  margin: 0; /* Assurez-vous qu'il n'y ait pas de marge qui pourrait causer le défilement */
+  overflow: hidden; /* Cela empêchera le défilement sur l'ensemble de la page */
+}
+.App {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh; /* 100% de la hauteur de la fenêtre de visualisation */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cette propriété CSS assure que la vidéo couvre toute la zone disponible */
+  z-index: -1; /* S'assurer que la vidéo est en arrière-plan */
+}
+
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  
+}
+
+.App-header {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 2em;
+  border-radius: 10px;
+  width: fit-content;
+  margin: auto;
+}
+
+.button-group button {
+  padding: 0.5em 1em;
+  margin: 0 0.5em;
+  background: #0f0;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-group button:hover {
+  background: #013220;
+}
+
+textarea {
+  padding: 1.5em;
+  margin: 0.5em;
+  background: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 5px;
+  width: 80%;
+  font-size: 1.2em;
+  height: auto;
+  line-height: 1.5;
+  overflow-y: auto; /* Ajoute une barre de défilement si le contenu dépasse la hauteur visible */
+}
+
+
+
+ button {
+  padding: 0.5em;
+  margin: 0.5em;
+  background: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 5px;
+  width: 250px;
+}
+button:disabled {
+  background: #555;
+  color: #bbb;
+}
+
+button:focus, input:focus {
+  outline: none;
+  border: 1px solid #fff;
+}
+
+form {
+  margin: 20px 0;
+}
+
+p {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 0.5em;
+  border-radius: 5px;
+}
+
+/* Animation pour le bouton 'Predict' */
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.7);
+  }
+  to {
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+  }
+}
+
+button:hover:not(:disabled) {
+  animation: pulse 1s infinite;
 }
