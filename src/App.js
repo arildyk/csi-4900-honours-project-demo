@@ -8,6 +8,11 @@ function App() {
   const [error, setError] = useState('');
   const [predictionType, setPredictionType] = useState('url'); // 'url' ou 'email'
 
+  const setPredictionAndClearInput = (type) => {
+    setPredictionType(type);
+    setInput(''); // Réinitialiser l'input lorsque le type de prédiction change
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -50,12 +55,11 @@ function App() {
         <header className="App-header">
           <h1>{predictionType.toUpperCase()} Prediction</h1>
           <div className="button-group">
-            <button onClick={() => setPredictionType('url')}>URL Prediction</button>
-            <button onClick={() => setPredictionType('email')}>Email Prediction</button>
+            <button onClick={() => setPredictionAndClearInput('url')}>URL Prediction</button>
+            <button onClick={() => setPredictionAndClearInput('email')}>Email Prediction</button>
           </div>
           <form onSubmit={handleSubmit}>
             <textarea
-              
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={`Enter ${predictionType}`}

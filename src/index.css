@@ -1,3 +1,4 @@
+
 html, body {
   height: 100%;
   margin: 0; /* Assurez-vous qu'il n'y ait pas de marge qui pourrait causer le défilement */
@@ -39,7 +40,7 @@ html, body {
 .App-header {
   background: rgba(0, 0, 0, 0.75);
   padding: 2em;
-  border-radius: 10px;
+  border-radius: 5px;
   width: fit-content;
   margin: auto;
 }
